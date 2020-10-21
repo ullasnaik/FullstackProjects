@@ -1,0 +1,244 @@
+DDL 
+
+Exercise - 1
+
+Create a Database named "Hypermarket".
+
+Create Database hypermarket
+
+
+Create table Sales_Rep, Consumer and Invoice as per the structure given below :
+
+   Sales_Rep
+================
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Rep_ID    | int(8)      | NO   | PRI | NULL    |       |
+| Name      | varchar(30) | YES  |     | NULL    |       |
+| City      | varchar(15) | YES  |     | NULL    |       |
+| commision | double(5,2) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+    Consumer
+==================
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Consumer_ID   | int(5)      | NO   | PRI | NULL    |       |
+| Consumer_Name | varchar(30) | YES  |     | NULL    |       |
+| City          | varchar(15) | YES  |     | NULL    |       |
+| Grade         | int(3)      | YES  |     | NULL    |       |
+| Rep_ID        | int(8)      | YES  | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+
+  Invoice
+============
+
++----------------+--------+------+-----+---------+-------+
+| Field          | Type   | Null | Key | Default | Extra |
++----------------+--------+------+-----+---------+-------+
+| Invoice_ID     | int(5) | NO   | PRI | NULL    |       |
+| Invoice_amount | double | NO   |     | NULL    |       |
+| Invoice_Date   | date   | NO   |     | NULL    |       |
+| Consumer_ID    | int(5) | NO   | MUL | NULL    |       |
+| Rep_ID         | int(8) | NO   | MUL | NULL    |       |
++----------------+--------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+Solution:
+
+create table Sales_Rep
+(
+Rep_ID integer(8) ,
+Name varchar(30),
+City varchar(15),
+commision double(5,2),
+constraint pk_sales_rep primary key(Rep_ID));
+
+
+create table Consumer
+(
+Consumer_ID integer(5), Consumer_Name varchar(30), City varchar(15), Grade int(3),
+Rep_ID int(8), constraint pk_Consumer_ID primary key(Consumer_ID),foreign key(Rep_ID) 
+references Sales_Rep(Rep_ID)
+);
+
+
+create table Invoice
+(
+Invoice_ID int(5) not null, Invoice_amount double not null, 
+Invoice_Date date not null ,
+Consumer_ID int(5) not null ,
+Rep_ID int(8) not null,
+constraint pk_invoice primary key(Invoice_ID),
+foreign key(Consumer_ID) references Consumer(Consumer_ID), 
+foreign key(Rep_ID) references Sales_Rep(Rep_ID)
+);
+
+
+DML 
+
+Exercise - 2
+
+insert into Sales_Rep values (1001, 'Anthony G', 'New Delhi', 0.25);
+insert into Sales_Rep values (1002 'Rejina R', 'Bangalore', 0.15);
+insert into Sales_Rep values (1005, 'Jaya Prasad','Chennai',0.11);
+insert into Sales_Rep values (1006, 'Diptish' , 'Kolkatta' ,0.12);
+insert into Sales_Rep values (1007, 'Abbas' ,'Hyderabad', 0.10);
+insert into Sales_Rep values (1003, 'Santhosh', 'Mumbai' , 0.12);
+
+insert into Consumer values (3002,'Nirav Parmar' , 'New Delhi', 100,1001);
+insert into Consumer values (3007,'Harish Manana' ,'New Delhi', 200,1001);
+insert into Consumer values (3005,'James' , 'Bangalore',200,1002);
+insert into Consumer values (3008,'Rajesh Kumar' , 'Bangalore' , 300, 1002);
+insert into Consumer values (3004,'Somsubhra' ,'Kolkatta' , 300, 1006);
+insert into Consumer values (3009, 'Sharon George', 'Mumbai', 100 ,1003);
+insert into Consumer values (3003,'Ram Sangeeth' ,'Hyderabad', 200, 1007);
+insert into Consumer values (3001,'Mary', 'Chennai' , null, 1005);
+
+
+insert into Invoice values (10001 ,      1500.50,   '2017-10-05' , 		3005,       1002);
+insert into Invoice values (10009 ,      2700.60,   '2017-09-10' , 		3001,      	1005);
+insert into Invoice values (10002 ,      6560.20,   '2017-10-05' , 		3002,      	1001);
+insert into Invoice values (10004 ,      1100.50,   '2017-08-17' , 		3009,      	1003);
+insert into Invoice values (10007 ,      9480.50,   '2017-09-10' , 		3005,       1002);
+insert into Invoice values (10005 ,      2400.60,   '2017-07-27' , 		3007,	    1001);
+insert into Invoice values (10008 ,      5760.00,   '2017-09-10' , 		3002,       1001);
+insert into Invoice values (10010 ,      1983.43,   '2017-10-10' , 		3004,       1006);
+insert into Invoice values (10003 ,      2480.40,   '2017-10-10' , 		3009,       1003);
+insert into Invoice values (10012 ,      2500.45,   '2017-06-27' , 		3008,	    1002);
+insert into Invoice values (10011 ,      7500.29,   '2017-08-17' , 		3003,       1007);
+insert into Invoice values (10013 ,      3045.60,   '2017-04-25' , 		3002,       1001);
+
+
+Selection, Projection and Group By Clause
+
+Exercise -3
+
+Selection
+==========
+Write a SQL Query to retrieve the details of the Consumer like 
+Consumer_ID, Consumer_Name, City , Grade , Rep_ID who are from
+Bangalore and Kolkatta
+
+Select Consumer_ID, Consumer_Name, City , Grade , Rep_ID 
+from Consumer 
+where city = 'Bangalore' or city = 'Kolkatta';
+
+
+Write a SQL Query to retrieve the details of the Invoice 
+like Invoice_ID, Invoice_Date, Consumer_ID, Rep_ID, Invoice_Amount
+whose Invoice_Amount is more than 5000.
+
+Select Invoice_ID, Invoice_Date, Consumer_ID, Rep_ID, Invoice_Amount 
+from Invoice  
+where Invoice_Amount > 5000;
+
+Write a SQL Query to retrieve the details of the Sales Rep like 
+Rep_ID, Name, City ,Commision who are from city that ends with 'i'
+
+select Rep_ID, Name, City, commision 
+from Sales_Rep
+where city like '%i';
+
+Exercise - 4
+
+Projection
+===========
+
+Write a SQL statement to display specific columns like 
+name, city and commision for all the salesmen. 
+
+SELECT name, commision, city from Sales_Rep;
+
+
+Write a query to display all the details of the Invoice 
+like Invoice_Date, Rep_ID, Invoice_ID and Invoice_Amount.
+ 
+Select Invoice_Date, Rep_ID, Invoice_ID, Invoice_Amount
+from Invoice; 
+
+
+Exercise -5
+
+OrderBy, GroupBy Clauses
+============================
+
+Write a SQL Statement to fetch the Details Consumer like 
+Consumer_ID, Consumer_Name , City , Grade 
+in alphabetical order of Name.
+
+select Consumer_ID , Consumer_Name , City , Grade 
+from Consumer
+order by Consumer_Name;
+
+
+Write a SQL statement which selects the highest Invoice Value 
+for each Sales Rep.
+
+select Rep_ID, max(Invoice_Amount) 
+from Invoice 
+group by Rep_ID;
+
+
+JOINS
+
+Exercise - 6
+
+Write a SQL statement to find the list of Consumers and Sales_Rep 
+who lives in the same city where their customer lives, 
+and gets a commission is above 12%.
+
+
+SELECT a.Consumer_Name AS "Consumer Name", 
+a.city, b.name AS "SalesRep", b.city,b.commision  
+FROM Consumer a  
+INNER JOIN Sales_Rep b  
+ON a.Rep_ID=b.Rep_ID 
+WHERE b.commision>.12 
+AND a.city = b.city;
+
+
+Write a SQL statement to find the details of a Invoice 
+i.e. Invoice_ID, Invoice_Date, Invoice_Amount, 
+which Consumer gives the order and which salesman works 
+for that Consumer and commission rate he gets for an order.
+
+SELECT a.Invoice_ID,a.Invoice_Date,a.Invoice_Amount,
+b.Consumer_Name AS "Customer Name", b.Grade, 
+c.Name AS "SalesRep", c.commision 
+FROM Invoice a 
+INNER JOIN Consumer b 
+ON a.Consumer_ID=b.Consumer_ID 
+INNER JOIN Sales_Rep c 
+ON a.Rep_ID =c.Rep_ID;
+
+
+Sub Queries
+
+Exercise - 7
+
+Write a query to display all the Invoice details for the 
+salesman who belongs to the city Kolkatta.
+
+SELECT *
+FROM Invoice
+WHERE Rep_ID =
+    (SELECT Rep_ID 
+     FROM Sales_Rep 
+     WHERE city='Kolkatta');
+	 
+	 
+	 
+Write a query to find all Invoices with Invoice amount which 
+are above-average amounts for their Consumers.
+
+SELECT * 
+FROM Invoice a
+WHERE Invoice_Amount >
+    (SELECT AVG(Invoice_Amount) FROM Invoice b 
+     WHERE b.Consumer_ID = a.Consumer_ID);
+	 
+	 
+	 

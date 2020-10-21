@@ -1,0 +1,182 @@
+.left {
+  width : 30%;
+  float : left;
+  /* height: 450px; */
+  overflow-y: overlay;
+}
+
+.right {
+    width: 50%;
+    float: left;
+    margin-left: 12.5%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: orange;
+  color: black;
+}
+#searchText-id{
+  width: 25%;
+  margin-top: 1%;
+  height: 25px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 2%;
+  font-family: serif
+}
+.card-search {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  text-align: center
+}
+
+.container-search {
+  padding: 1px 10px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+@media only screen and (max-width: 600px) {
+  #searchContainer , #searchText-id{
+    width: 100%;
+    margin-top: 3%;
+  }
+  .left {
+    width: 100%;
+  }
+  .right{
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 8%;
+  }
+}
+
+#person{
+    padding-top: 1rem;
+  }
+  
+* {box-sizing: border-box}
+  input[type=text], input[type=number] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 12px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=number]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  button:hover {
+    opacity:1;
+  }
+  .btn {
+    width: 100%;
+  }
+  
+  .container {
+    padding: 2px;
+  }
+  
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 300px) {
+      .signupbtn {
+        width: 100%;
+    }
+  }
+  @media screen and (max-width: 606px) {
+  #person{
+      padding-top: 1rem;
+    }
+  }
+
+  label {
+    display: block;
+    margin-top: 5px;
+  }
+  .card-container.card {
+      margin: auto;
+    top: 4.5rem;
+    max-width: 450px !important; 
+  }
+  .card {
+    background-color: #f7f7f7;
+    padding: 20px 25px 25px;
+    /* margin: 0 auto 25px; */
+    margin-top: 25px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-img-card {
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 50%;
+  }
+  .alert-danger{
+    color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #212529;
+      text-align: left;
+  }
+  
+  .alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+  .alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+  }
+  
+ 

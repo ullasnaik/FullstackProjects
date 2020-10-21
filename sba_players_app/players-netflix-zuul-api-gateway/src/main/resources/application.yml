@@ -1,0 +1,28 @@
+server:
+  port: ${API_GATEWAY_PORT:9000}
+spring:
+  application:
+    name: api-gateway
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER_IP:localhost}:${EUREKA_SERVER_PORT:8761}/eureka
+zuul:
+  host:
+    connect-time-millis: 60000
+  ribbon:
+    eager-load:
+      enabled: true
+
+  routes:
+    userservice:
+      serviceId: user-service
+    favourite:
+      serviceId: favourite-service
+    playersui:
+      serviceId: players-ui
+    recommendation:
+      serviceId: recommendation-service
+

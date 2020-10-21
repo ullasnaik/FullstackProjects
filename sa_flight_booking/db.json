@@ -1,0 +1,59 @@
+{
+    "users":[
+        {
+            "username": "admin",
+            "password":"password"
+        },
+        {
+            "username":"user1",
+            "password":"user@123"
+        }
+
+    ],
+    "flights": [
+        {
+            "flightId": "TOM6347",
+            "flightName": "Airbus A319",
+            "route": {
+                "source": "Chennai",
+                "destination": "banglore"
+            },
+            "schedule": [
+                {
+                    "day": "Monday",
+                    "Time": "10.00.AM"
+                },
+                {
+                    "day": "Wednesday",
+                    "Time": "10.00.AM"
+                },
+                {
+                    "day": "Friday",
+                    "Time": "10.00.AM"
+                }
+            ]
+        },
+        {
+            "flightId": "TOM6348",
+            "flightName": "Airbus A319",
+            "route": {
+                "source": "banglore",
+                "destination": "Chennai"
+            },
+            "schedule": [
+                {
+                    "day": "Tuesday",
+                    "Time": "10.00.AM"
+                },
+                {
+                    "day": "Thursday",
+                    "Time": "10.00.AM"
+                },
+                {
+                    "day": "Saturday",
+                    "Time": "10.00.AM"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+
+	Microservices
+	--------------
+
+	API Gateway
+	Service Discovery
+	Centralized Configuration
+
+	Log Aggregation, Tracing,Fault Tolerance
+
+
+	API Gateway
+		routing
+		Offloading
+		aggregation
+
+
+	Why
+	 - Dynamic requirements for modern day applications
+	 - Faster deployment
+	 - Agility (lesser time for adding new features)
+
+	Benefits
+	  - New Tech stacks can be used for services
+	  - learning curve is smaller
+	  - scalability (Load management)
+	  - testing and debugging is faster
+	  - deployment is faster
+
+
+	Spring Cloud
+	    - Netflix OSS
+            - Eureka - Service Discovery
+            - Zuul   - API Gateway
+            - Ribbon - Loadbalancing
+
+
+	    - Config
+
+
+
+	EcomProject
+	  - CatalogService
+		- getProduct
+	  - InventoryService
+		- getAvailibility(prd code)
+	  - APIGatewayService
+		- Zuul API Gateway
+			- add zuul dependency
+			- Added Annotation @EnableZuulProxy
+			- configured routes in application.yml(with Eureka we can use default or can customize)
+			- Make these as Eureka client -->
+						Add Eureka Client dep
+						 @EnableDiscoveryClient
+
+
+	  - discoveryService
+		- Eureka
+			- add eureka server dependency
+			- add an Annotation @EnableEurekaServer
+			- configure in yml not to register itself
+
+
+
+
+
+
+
+
+
+
+
+
+

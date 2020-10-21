@@ -1,0 +1,159 @@
+
+
+Brillio Wave-2 JavaFSD 
+Learning outcome (08/09/2020) FN
+
+1. Introduction to Spring AOP
+
+2. AOP VS OOPs
+
+3. AOP Terminologies
+
+	Aspect
+	
+	JoinPoint
+	
+	Advice
+	
+	Pointcut
+	
+	Target Object
+	
+	Weaving
+		
+	Types of Advice
+	
+	
+-> AOP stands for Aspect oriented Programming
+-> breaking down program logic into distinct parts
+     are called as Concerns
+-> The functions that span multiple point of an application are 
+     called cross-cutting concerns.
+-> Cross-cutting concern are conceptually seperate from the 
+    application business logic.
+
+Ex: Logging, auditing, transactions
+
+
+OOPs                                             AOP
+
+The key unit of modularity in OOP is the        The key unit of modularity in AOP is
+class										     Aspect
+DI helps us to decouple the application         AOP helps us to decouple cross-cutting  
+objects from each other							concerns from the objects that they affect.
+												AOP is like a Triggers in a Programming 
+												Language such as Java, c#, PERL etc
+												
+												
+Aspect
+
+It is a module which has a set of API's providing cross-cutting 
+requirements
+For example, a logging module would be called AOP aspect for logging
+An application can contain any number of aspects depending upon the
+requirement.
+
+Joinpoint
+
+represents a point in the application where we can plug-in the AOP
+aspect.
+It is the actual location in the application where an action will be
+taken using Spring AOP Framework.
+
+Advice
+-> actual action to be taken either before or after the method execution.
+-> actual piece of code that is invoked during the program
+
+Pointcut
+ It is a set of one or more joinpoints where an advice should be executed
+ 
+Weaving
+
+   it is the process of linking aspects with other applications.
+   It can done at compile time, runtime, loadtime
+   
+ 
+Types of Advice
+
+before : run advice before the method execution
+
+after : run advice after the method execution
+
+after-throwing : run advice after method execution only if  method throws exception
+
+around : run advice before or after the advised method is invoked.
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+												
+												
+												
+												
+												
+												
+												
+												
+												
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	   
+	   
+	   
+	   
+	   
+	   
+	   

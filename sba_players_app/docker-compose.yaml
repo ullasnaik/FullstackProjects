@@ -1,0 +1,137 @@
+version: '3.5'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_container
+    network_mode: host
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: PlayerDB
+      MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: [ "CMD", "mysql" ,"-u", "root", "-proot" ]
+      timeout: 20s
+      retries: 10
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_container
+    network_mode: host
+    ports:
+      - 27017:27017
+
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    network_mode: host
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    image: 'bitnami/kafka:latest'
+    network_mode: host
+    ports:
+      - '9092:9092'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+      - KAFKA_ZOOKEEPER_CONNECT=localhost:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+
+  apigateway:
+    image: apigateway:1.0
+    build: ./players-netflix-zuul-api-gateway
+    container_name: apigateway_container
+    network_mode: host
+    ports:
+      - 9000:9000
+    environment:
+      API_GATEWAY_PORT: 9000
+      EUREKA_SERVER_IP: localhost
+      EUREKA_SERVER_PORT: 8761
+    restart: always
+    depends_on:
+      - eurekaservice
+
+  eurekaservice:
+    image: eurekaservice:1.0
+    build: ./players-netflix-eureka-server
+    container_name: eurekaservice_container
+    network_mode: host
+    ports:
+      - 8761:8761
+    restart: always
+    environment:
+      EUREKA_SERVER_PORT: 8761
+
+  userservice:
+    image: userservice:1.0
+    build: ./user-service
+    container_name: userservice_container
+    network_mode: host
+    ports:
+      - 8082:8082
+    environment:
+      MYSQL_URL: jdbc:mysql://localhost:3306/PlayerDB
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      EUREKA_SERVER_IP: localhost
+      EUREKA_SERVER_PORT: 8761
+    depends_on:
+      - mysql
+      - eurekaservice
+      - apigateway
+    restart: always
+
+  recomservice:
+    image: recomservice:1.0
+    build: ./players-recommendation-service
+    container_name: recomservice_container
+    network_mode: host
+    ports:
+      - 8093:8093
+    environment:
+      MONGO_URI: mongodb://localhost:27017/PlayersRecomDB
+      EUREKA_SERVER_IP: localhost
+      EUREKA_SERVER_PORT: 8761
+    depends_on:
+      - mongo
+      - eurekaservice
+      - apigateway
+    restart: always
+
+  favoriteservice:
+    image: favoriteservice:1.0
+    build: ./players-favourite-service
+    container_name: favoriteservice_container
+    network_mode: host
+    ports:
+      - 8092:8092
+    environment:
+      MONGO_URI: mongodb://localhost:27017/PlayerFavDB
+      EUREKA_SERVER_IP: localhost
+      EUREKA_SERVER_PORT: 8761
+    depends_on:
+      - mongo
+      - eurekaservice
+      - apigateway
+    restart: always
+
+  playersui:
+    image: playersui:1.0
+    build: ./players-ui
+    container_name: playersui_container
+    network_mode: host
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+      - eurekaservice
+      - apigateway
+    restart: always
+

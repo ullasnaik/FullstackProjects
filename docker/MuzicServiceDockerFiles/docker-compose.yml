@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  authenticationService:
+    image: authenticationservice
+    build: authenticationservice/
+    restart: always
+    depends_on:
+      - mysqlDatabase
+      - mongoDatabase
+    network_mode: host
+    ports:
+      - 9005:9005
+
+  userTrackService:
+    image: usertrackservice
+    build: usertrackservice/
+    restart: always
+    ports:
+      - 9010:9010
+    depends_on:
+      - mongoDatabase
+    network_mode: host
+
+  mysqlDatabase:
+    image: mysql:5.5
+    ports:
+      - 3306:3306
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: approot
+      MYSQL_PASSWORD: pass
+      MYSQL_DATABASE: UserDb
+
+  muzixwebapp:
+    image: muzixwebapp
+    build: angularUI/
+    network_mode: host
+    ports:
+      - 8080:8080
+
+  mongoDatabase:
+    image: mongo:3.2-jessie
+    ports:
+      - 27017:27017
+    network_mode: host

@@ -1,0 +1,78 @@
+{
+  "news": [
+    {
+      "source": {
+        "id": null,
+        "name": "Ndtv.com"
+      },
+      "author": null,
+      "title": "Watch: Pervez Musharraf Says \"Osama bin Laden Was Pakistan's Hero\" - NDTV News",
+      "description": "Former Pakistan President Pervez Musharraf in an interview admitted that Kashmiris were \"trained in Pakistan\" as Mujahideen to fight against the Indian Army in Jammu and Kashmir. He also called jihadi terrorists as Pakistan's \"heroes\". He also said that terro…",
+      "url": "https://www.ndtv.com/world-news/watch-musharraf-admits-training-kashmiris-as-mujahideen-to-fight-indian-army-2132216",
+      "urlToImage": "https://i.ndtvimg.com/i/2016-04/musharraf_650x400_71460209701.jpg",
+      "publishedAt": "2019-11-14T05:49:00Z",
+      "content": "Former Pak President Pervez Musharraf also admitted to training terrorists to be used against IndiaIslamabad: Former Pakistan President Pervez Musharraf in an interview admitted that Kashmiris were \"trained in Pakistan\" as Mujahideen to fight against the Indi… [+2081 chars]",
+      "id": 1
+    },
+    {
+      "source": {
+        "id": "the-times-of-india",
+        "name": "The Times of India"
+      },
+      "author": "TIMESOFINDIA.COM",
+      "title": "Anti-gravity exercise for diabetics: What it is and how to do it - Times of India",
+      "description": "Sugar drops when you go against gravity. Let us take a deeper look at the importance of anti-gravity exercise for d",
+      "url": "https://timesofindia.indiatimes.com/life-style/health-fitness/fitness/anti-gravity-exercise-for-diabetics-what-it-is-and-how-to-do-it/articleshow/72050235.cms",
+      "urlToImage": "https://static.toiimg.com/photo/msid-72050235/72050235.jpg?688123",
+      "publishedAt": "2019-11-14T05:30:00Z",
+      "content": "When diabetics were questioned about the kind of exercise regime they follow, almost 60% of them answered walking. And this is a common belief not only in our country but worldwide. Diabetics are often recommended to walk for a minimum of 45 minutes and pract… [+3998 chars]",
+      "id": 2
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Thewire.in"
+      },
+      "author": null,
+      "title": "The Shapeshifting Relationship Between Science and Religion - The Wire",
+      "description": "Religion in different forms has largely co-existed with science, with both domains contributing equally to our worldview.",
+      "url": "https://thewire.in/the-sciences/the-shapeshifting-relationship-between-science-and-religion",
+      "urlToImage": "https://cdn.thewire.in/wp-content/uploads/2019/11/27130631/Screenshot-2019-11-27-at-1.04.38-PM-800x400.png",
+      "publishedAt": "2019-11-27T08:02:35Z",
+      "content": "The realms of science and religion are opposite poles of the human experience, dealing with the material and the spiritual, respectively. Scholars have widely debated the relationship, in particular the apparent conflict, between the two. The idea that they a… [+9429 chars]",
+      "id": 3
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Moneycontrol.com"
+      },
+      "author": null,
+      "title": "Market Live: Nifty below 12,100, Sensex down 200 pts; bank, IT top drags - Moneycontrol.com",
+      "description": "Indian market is witnessing profit-booking ahead of the country's second quarter GDP data which is likely to come lower than 5 percent or maybe even near a decade low level.",
+      "url": "https://www.moneycontrol.com/news/business/markets/market-hdfc-bank-aurobindo-cg-power-ashoka-buildcon-khadim-india-4684591.html",
+      "urlToImage": "https://static-news.moneycontrol.com/static-mcnews/2019/02/Sensex_nifty_BSE_NSE_traders_NSE-770x433.jpg",
+      "publishedAt": "2019-11-29T04:28:37Z",
+      "content": "Brokearge Views: Source - CNBC-TV18:\r\nNomura on BondsNumber of positive &amp; negative development for the Indian bond market since AugExpect the fiscal deficit to slip to 3.7% of GDP in FY20Despite negative development, India’s bond yields have been relative… [+1767 chars]",
+      "id": 4
+    },
+    {
+      "author": null,
+      "title": "The Shapeshifting Relationship Between Science and Religion - The Wire",
+      "description": "Religion in different forms has largely co-existed with science, with both domains contributing equally to our worldview.",
+      "id": 5
+    },
+    {
+      "author": null,
+      "title": "The Shapeshifting Relationship Between Science and Religion - The Wire",
+      "description": "Religion in different forms has largely co-existed with science, with both domains contributing equally to our worldview.",
+      "id": 6
+    },
+    {
+      "author": null,
+      "title": "The Shapeshifting Relationship Between Science and Religion - The Wire",
+      "description": "Religion in different forms has largely co-existed with science, with both domains contributing equally to our worldview.",
+      "id": 7
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+version: "3"
+services:
+  book:
+    image: book-mysql-check
+    ports:
+      - "8080:8080"
+    networks:
+      - dockerimpl
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8
+    networks:
+      - dockerimpl
+    environment:
+      - MYSQL_ROOT_PASSWORD:Root@123
+      - MYSQL_DATABASE:User
+
+networks:
+  dockerimpl:

@@ -1,0 +1,13 @@
+Creation of MYSQL image
+
+Step-1
+
+docker run -d -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=testdb -e MYSQL_USER=dbuser1 -e MYSQL_PASSWORD=pass -p 3306:3306 mysql:5.7
+
+Step-2 
+
+sudo docker exec -it 6e9475b2569f bash
+
+Step-3
+mysql -udbuser1 -p
+

@@ -1,0 +1,10 @@
+.registerForm{
+    width: 50vw;
+    margin :auto
+}
+.error{
+    color: red
+}
+h3 {
+    text-align:center
+}

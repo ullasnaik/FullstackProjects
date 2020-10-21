@@ -1,0 +1,31 @@
+JOINS
+
+Exercise - 6
+
+Write a SQL statement to find the list of Consumers and Sales_Rep 
+who lives in the same city where their customer lives, 
+and gets a commission is above 12%.
+
+
+SELECT a.Consumer_Name AS "Consumer Name", 
+a.city, b.name AS "SalesRep", b.city,b.commision  
+FROM Consumer a  
+INNER JOIN Sales_Rep b  
+ON a.Rep_ID=b.Rep_ID 
+WHERE b.commision>.12 
+AND a.city = b.city;
+
+
+Write a SQL statement to find the details of a Invoice 
+i.e. Invoice_ID, Invoice_Date, Invoice_Amount, 
+which Consumer gives the order and which salesman works 
+for that Consumer and commission rate he gets for an order.
+
+SELECT a.Invoice_ID,a.Invoice_Date,a.Invoice_Amount,
+b.Consumer_Name AS "Customer Name", b.Grade, 
+c.Name AS "SalesRep", c.commision 
+FROM Invoice a 
+INNER JOIN Consumer b 
+ON a.Consumer_ID=b.Consumer_ID 
+INNER JOIN Sales_Rep c 
+ON a.Rep_ID =c.Rep_ID;

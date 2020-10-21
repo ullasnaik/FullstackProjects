@@ -1,0 +1,95 @@
+https://www.w3resource.com/sql-exercises/sql-retrieve-from-table.php
+
+https://www.w3resource.com/sql-exercises/
+
+Sales_Rep
+
+Rep_ID  Integer(8)
+Name    varchar(30)
+City    varchar(15)
+commision double(5,2)
+=========================================================
+
+ Rep_ID      |    Name    |   City   | commission 
+-------------+------------+----------+------------
+        1001 | Anthony G  | New Delhi|       0.25
+        1002 | Rejina R   | Bangalore|       0.15
+        1005 | Jaya Prasad| Chennai  |       0.11
+        1006 | Diptish    | Kolkatta |       0.12
+        1007 | Abbas      | Hyderabad|       0.10
+        1003 | Santhosh   | Mumbai   |       0.12
+
+create table Sales_Rep
+(
+Rep_ID integer(8) ,
+Name varchar(30),
+City varchar(15),
+commision double(5,2),
+constraint pk_sales_rep primary key(Rep_ID));
+
+		
+Consumer
+Consumer_ID integer(5)
+Consumer_Name varchar(30)
+City varchar(15)
+Grade int(3)
+Rep_ID Integer(8)
+
+create table Consumer
+(
+Consumer_ID integer(5), Consumer_Name varchar(30), City varchar(15), Grade int(3),
+Rep_ID int(8), constraint pk_Consumer_ID primary key(Consumer_ID),foreign key(Rep_ID) 
+references Sales_Rep(Rep_ID)
+);
+
+		
+		
+Consumer_ID  |   cust_name    |    city    | grade |  Rep_ID 
+-------------+----------------+------------+-------+-------------
+        3002 | Nirav Parmar   | New Delhi  |   100 |        1001
+        3007 | Harish Manana  | New Delhi  |   200 |        1001
+        3005 | James          | Bangalore  |   200 |        1002
+        3008 | Rajesh Kumar   | Bangalore  |   300 |        1002
+        3004 | Somsubhra      | Kolkatta   |   300 |        1006
+        3009 | Sharon George  | Mumbai     |   100 |        1003
+        3003 | Ram Sangeeth   | Hyderabad  |   200 |        1007
+        3001 | Mary           | Chennai    |       |        1005
+		
+Invoice
+Invoice_ID int(5)
+Invoice_amount double
+Invoice_Date date
+Consumer_ID integer(5)
+Rep_ID Integer(8)
+
+create table Invoice
+(
+Invoice_ID int(5) not null, Invoice_amount double not null, 
+Invoice_Date date not null ,
+Consumer_ID int(5) not null ,
+Rep_ID int(8) not null,
+constraint pk_invoice primary key(Invoice_ID),
+foreign key(Consumer_ID) references Consumer(Consumer_ID), 
+foreign key(Rep_ID) references Sales_Rep(Rep_ID)
+);
+
+
+Invoice_ID  Invoice_amount  Invoice_Date    Consumer_ID   Rep_ID
+----------  ----------  	----------  	-----------  -----------
+10001       1500.50       	2017-10-05  		3005        1002
+10009       2700.60      	2017-09-10  		3001       	1005
+10002       6560.20       	2017-10-05  		3002       	1001
+10004       1100.50       	2017-08-17  		3009       	1003
+10007       9480.50       	2017-09-10  		3005        1002
+10005       2400.60      	2017-07-27  		3007	    1001
+10008       5760.00        	2017-09-10  		3002        1001
+10010       1983.43     	2017-10-10  		3004        1006
+10003       2480.40      	2017-10-10  		3009        1003
+10012       2500.45      	2017-06-27  		3008	    1002
+10011       7500.29       	2017-08-17  		3003        1007
+10013       3045.60      	2017-04-25  		3002        1001
+
+		
+
+		
+		

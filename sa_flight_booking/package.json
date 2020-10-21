@@ -1,0 +1,17 @@
+{
+  "name": "stack_mean_prreq_ex2",
+  "version": "1.0.0",
+  "description": "1. Fork this boilerplate repository  \r 2. Clone the boilerplate repository and cd into it  \r 3. Install dependencies.",
+  "main": "index.js",
+  "scripts": {
+   "start": "live-server public/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.2"
+  }
+}

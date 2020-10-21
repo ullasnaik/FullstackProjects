@@ -1,0 +1,24 @@
+Sub Queries
+
+Exercise - 7
+
+Write a query to display all the Invoice details for the 
+salesman who belongs to the city Kolkatta.
+
+SELECT *
+FROM Invoice
+WHERE Rep_ID =
+    (SELECT Rep_ID 
+     FROM Sales_Rep 
+     WHERE city='Kolkatta');
+	 
+	 
+	 
+Write a query to find all Invoices with Invoice amount which 
+are above-average amounts for their Consumers.
+
+SELECT * 
+FROM Invoice a
+WHERE Invoice_Amount >
+    (SELECT AVG(Invoice_Amount) FROM Invoice b 
+     WHERE b.Consumer_ID = a.Consumer_ID);

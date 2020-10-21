@@ -1,0 +1,16 @@
+spring:
+  data:
+    mongodb:
+      username: ${MONGO_USERNAME}
+      password: ${MONGO_PASSWORD}
+      database: ${MONGO_DATABASE}
+      port: ${MONGO_PORT}
+      host: ${MONGO_HOST}
+  application:
+    name: note-service
+server:
+  port: 9300
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka

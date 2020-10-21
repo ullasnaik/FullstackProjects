@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/script.js" type="text/javascript"></script>
+</head>
+
+<body onload="">
+    <header>
+        <h1>Flight Booking</h1>
+    </header>
+    <div id="content">
+        <div class="textleft">
+            <spam>Select the Flight</spam>
+            <select id="flights">
+                <option value="Air India">Air India</option>
+                <option value="Indigo">Indigo</option>
+                <option value="Jet Airways">Jet Airways</option>
+            </select>
+        </div>
+        <div id="tabsection" class="tab">
+            <button type="button" class="tablinks" onclick="openQuery(event, 'flight');">Book Flight</button>
+            <button class="tablinks" onclick="openQuery(event, 'Availability') ">View Availability</button>
+            <button class="tablinks" onclick="openQuery(event, 'Search')">Search Flight</button>
+        </div>
+
+        <div id="flight" class="tabcontent">
+            <div style="text-align: center;">
+                <span>Enter Passanger Details</span>
+                <br>
+                <br>
+                <input type="text" id="qtext" placeholder="name" />
+                <br>
+                <br>
+                <input type="text" id="qtext" placeholder="Age" />
+                <br>
+                <br>
+                <input type="submit" />
+            </div>
+        </div>
+
+        <div id="Availability" class="tabcontent">
+            <div>
+                <spam>View Availability</spam>
+                <ul id="fAvailability">
+                </ul>
+            </div>
+        </div>
+
+        <div id="Search" class="tabcontent">
+            <select id="days" onchange="Fchange()">
+                <option value="Mon">Monday</option>
+                <option value="Tue">Tuesday</option>
+                <option value="Wed">Wednesday</option>
+                <option value="Thr">Thursday</option>
+                <option value="Fri">Friday</option>
+                <option value="Sat">Saturday</option>
+                <option value="Sun">Sunday</option>
+            </select>
+            <div id="fava">
+                <spam>Availble Flights</spam>
+                <ul id="fAvailability">
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <footer>
+        <p>Copy Rights @2020</p>
+    </footer>
+
+</body>
+
+</html>

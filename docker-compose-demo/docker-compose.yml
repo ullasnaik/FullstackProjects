@@ -1,0 +1,33 @@
+version: '3.5'
+
+services: 
+  mysql:
+    image: mysql:latest
+    container_name: mysql_container
+    environment: 
+      MYSQL_DATABASE: fitness_zone
+      MYSQL_ROOT_PASSWORD: password
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_container
+
+  userservice:
+    image: somsubhramkh/fitnesszone-userservice:1.0
+    container_name: userservice_container
+    environment: 
+      MYSQL_URL: jdbc:mysql://mysql:3306/fitness_zone
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: password
+    depends_on: 
+      - mysql
+    restart: always
+  
+  productservice:
+    image: somsubhramkh/fitnesszone-productservice:latest
+    container_name: productservice_container
+    environment: 
+      MONGO_URI: mongodb://mongo:27017/productdb
+    depends_on: 
+      - mongo
+    restart: always

@@ -1,0 +1,18 @@
+spring:
+ data:
+   mongodb:
+     username: ${MONGO_USER}
+     password: ${MONGO_PASSWORD}
+     database: ${MONGO_DATABASE}
+     port: ${MONGO_PORT}
+     host: ${MONGO_HOST}
+#spring:
+#  data:
+#    mongodb:
+#      username: admin
+#      password: admin
+#      database: admin
+#      port: "27017"
+#      host: "127.0.0.1"
+server:
+ port: 8081

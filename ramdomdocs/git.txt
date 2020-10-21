@@ -1,0 +1,57 @@
+	Git
+	----
+
+	SCM
+
+	- Store on cloud and share
+	- Version control and seeing history of change
+	- Collaborate with other developer for development
+	- Branching
+
+
+        - create a new repo - share - collaborate
+	- clone a repo from remote - collborate
+
+
+	git init  foldername-> .git
+
+	git add <file or folder>
+
+	git reset --> remove files from staging area
+	git clean -fd --> remove untracked files from working area
+
+	git log --> history of commits
+	git log --oneline
+	git log --stat
+
+	git diff  ( find the diff between work area and the last commit)
+
+	git commit --amend -m "new Message"
+
+	git remote -v ( to list the remotes)
+	git remote add origin --url---   (add new remotes)
+	git remote set-url prod "http://newurl" (changing remote urls)
+
+
+
+	master -> prod -->
+
+	master
+	|__ feature1
+	
+	Add a new feature
+	------------------------------
+
+	create a feature branch   --- git branch feature1
+	
+	switch to branch -- git checkout feature1
+
+	Add feature functionality ---  add, commit , push to branch
+
+	merge this branch in to master branch  -->  git checkout master-> git merge feature1
+	
+	delete the branch    -- git branch -d feature1
+
+
+
+	Merge Conflicts

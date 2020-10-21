@@ -1,0 +1,104 @@
+ 
+ 
+ 	REST API
+	---------
+	
+	Web Services: 
+		SOAP: XMl over http
+ 	
+ 		Rest Web Services
+ 			- loosely coupled service on the internet
+ 			- data is exchanged in form of json
+ 			- The consumer application and producer app can be written in diff tech.
+ 			
+ 		
+ 		REST Architecture- Representational state transfer
+ 		--------------------------------------
+ 		1. Resource -  any data of information, doc, image, video   - Flight
+ 		2. URI - uniquely identifiable
+ 		3. Standard actions : Http verbs : GET, post, put, delete
+ 		4. Data is exchanged in the form of representation - json, xml, text, .....
+ 		5. Meta information : contenttype - json, responsecode
+ 		6. Stateless, Cachable
+ 		
+ 		
+ 		
+ 		Rest Web service / REST API
+ 		-----------------------------
+ 		Resource - product       http://www.mycompany.com/productapi/products
+ 		
+ 		GET /products                  json
+ 		GET /product/{prodcode}
+ 		GET /products/category/{categoryname}
+ 		 
+ 		POST /products    -- representation - product json data
+ 		DELETE /products/{productcode}
+ 		PUT /products
+ 		
+ 		
+ 		Http Status
+ 		---------------
+ 		
+ 		200 -ok
+ 		201 - created 
+ 		
+ 		404 - not found	
+ 		401 - forbidded
+ 		405, 406, 415
+ 		
+ 		500
+ 		
+ 		
+ 		Spring REST API - web mvc 
+ 		
+ 		
+ 		Marshalling and UnMarshalling
+ 		------------------------------
+ 		Jackson 
+ 		
+ 		
+ 		In Spring mvc application
+ 		----------------------------
+ 		Add Jackson maven dependency
+ 		
+ 		FOR Spring REST API
+ 		------------------------
+ 		@RestController over the class
+ 		
+ 		URL/method Mapping
+ 		-------------------
+ 		@GetMapping("/products/{productCode}")
+ 		@DeleteMapping("/products/{productCode}")
+ 		@PostMapping("/products")
+ 		
+ 		Get the Data from request Body
+ 		---------------------------------
+ 		@RequestBody 
+ 		
+ 		
+ 		To send Successful response status
+ 		-------------------------------------
+ 		@ResponseStatus(value = HttpStatus.CREATED)  //  201
+ 		
+ 		
+ 		To send Custom Response
+ 		--------------------------
+ 		ResponseEntity
+ 		new ResponseEntity<Product>(product, HttpStatus.OK);
+ 		new ResponseEntity<String>("Product not found", HttpStatus.NOT_FOUND);
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		 			
+ 			

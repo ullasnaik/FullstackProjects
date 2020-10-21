@@ -1,0 +1,75 @@
+DDL 
+
+Exercise - 1
+
+Create Database hypermarket
+
+
+Create table Sales_Rep, Consumer and Invoice as per the structure given below :
+
+   Sales_Rep
+================
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Rep_ID    | int(8)      | NO   | PRI | NULL    |       |
+| Name      | varchar(30) | YES  |     | NULL    |       |
+| City      | varchar(15) | YES  |     | NULL    |       |
+| commision | double(5,2) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+    Consumer
+==================
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Consumer_ID   | int(5)      | NO   | PRI | NULL    |       |
+| Consumer_Name | varchar(30) | YES  |     | NULL    |       |
+| City          | varchar(15) | YES  |     | NULL    |       |
+| Grade         | int(3)      | YES  |     | NULL    |       |
+| Rep_ID        | int(8)      | YES  | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+
+  Invoice
+============
+
++----------------+--------+------+-----+---------+-------+
+| Field          | Type   | Null | Key | Default | Extra |
++----------------+--------+------+-----+---------+-------+
+| Invoice_ID     | int(5) | NO   | PRI | NULL    |       |
+| Invoice_amount | double | NO   |     | NULL    |       |
+| Invoice_Date   | date   | NO   |     | NULL    |       |
+| Consumer_ID    | int(5) | NO   | MUL | NULL    |       |
+| Rep_ID         | int(8) | NO   | MUL | NULL    |       |
++----------------+--------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+Solution:
+
+create table Sales_Rep
+(
+Rep_ID integer(8) ,
+Name varchar(30),
+City varchar(15),
+commision double(5,2),
+constraint pk_sales_rep primary key(Rep_ID));
+
+
+create table Consumer
+(
+Consumer_ID integer(5), Consumer_Name varchar(30), City varchar(15), Grade int(3),
+Rep_ID int(8), constraint pk_Consumer_ID primary key(Consumer_ID),foreign key(Rep_ID) 
+references Sales_Rep(Rep_ID)
+);
+
+
+create table Invoice
+(
+Invoice_ID int(5) not null, Invoice_amount double not null, 
+Invoice_Date date not null ,
+Consumer_ID int(5) not null ,
+Rep_ID int(8) not null,
+constraint pk_invoice primary key(Invoice_ID),
+foreign key(Consumer_ID) references Consumer(Consumer_ID), 
+foreign key(Rep_ID) references Sales_Rep(Rep_ID)
+);

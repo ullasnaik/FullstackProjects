@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id = "helloWorld" class = "com.stackroute.HelloWorld">
+<!--        <property name="message" value="Hello to all"></property>-->
+        <constructor-arg type = "java.lang.String" value="Hello to constructor"></constructor-arg>
+    </bean>
+<!--    <bean id = "sayHi" class = "com.stackroute.HelloWorld">-->
+<!--        <property name="message" value="Hi to you"></property>-->
+<!--    </bean>-->
+<!--    <bean id = "seeYouSoon" class = "com.stackroute.HelloWorld">-->
+<!--        <property name="message" value="See you soon to all of you"></property>-->
+<!--    </bean>-->
+<!--    <bean id = "check" class = "com.stackroute.HelloWorld">-->
+<!--        <property name="message" value="check on tuesday"></property>-->
+<!--    </bean>-->
+</beans>

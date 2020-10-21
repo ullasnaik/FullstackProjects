@@ -1,0 +1,105 @@
+Maven default lifecycle
+- validate, compile, test, package, install, deploy
+
+
+- Multi module project
+- DockerFile -> for each service
+    - images
+- DockerCompose ->
+    - build image angular app -> start
+    - build image auth service -> start
+    - build image usertrack service -> start
+    - get the image for Mysql from Dockerhub -> start
+    - get the image for Mongo from Dockerhub -> start
+
+- stop local mysql and mongo - done
+- build the jar files for services - done
+- build the angular application -
+
+
+Swagger:
+    - document your api
+    - interact with your api
+
+    - Add Swagger deps
+        - springfox-swagger2
+        - springfox-swagger-ui
+
+    - create a config file for swagger
+        @EnableSwagger2
+
+    Customize the documentation
+        - Docket
+        - ApiInfo
+
+
+Changes done in code
+    - package
+    - build image
+    - run container
+
+
+Docker Commands
+---------------
+list images : 
+docker images
+
+remove images: 
+docker rmi <imageid>
+
+list all containers: 
+docker ps -a
+
+list active containers: 
+docker ps
+
+stop container:
+docker stop containerid
+
+remove container:
+docker rm containerid
+
+remove all stopped containers:
+docker container prune
+
+start docker compose: 
+docker-compose up -d
+
+docker compose with image build: 
+docker-compose up -d --build
+
+docker compose with image build for one service: (you can add more service by providing a space and the service name)
+docker-compose up -d --build <servicename>
+
+docker compose stop one service: 
+docker-compose stop <servicename>
+
+docker compose restart one service:
+docker-compose restart <servicename>
+
+Stop and remove all containers created thru docker compose: 
+docker-compose down
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+server:
+  port: 8093
+spring:
+  application:
+    name: recommendation-service
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://localhost:27017/PlayersRecomDB}
+    jpa:
+      hibernate:
+        ddl-auto: create
+  kafka:
+    bootstrap-address: localhost:9092
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

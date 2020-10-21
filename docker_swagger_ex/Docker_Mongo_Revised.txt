@@ -1,0 +1,17 @@
+Mongo DB docker image creation
+
+
+Step-1 Pulling the image
+sudo docker pull mongo:4.0.4
+
+Step-2 Running the Container
+ sudo docker run -d -p 27017-27019:27017-27019 --name mongodb mongo:4.0.4
+ 
+Step-4 
+  sudo docker exec -it mongodb bash
+
+Step-5 
+   # mongo
+   
+   
+ 

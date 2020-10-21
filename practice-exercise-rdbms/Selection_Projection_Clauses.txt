@@ -1,0 +1,68 @@
+Selection, Projection and Group By Clause
+
+Exercise -3
+
+Selection
+==========
+Write a SQL Query to retrieve the details of the Consumer like 
+Consumer_ID, Consumer_Name, City , Grade , Rep_ID who are from
+Bangalore and Kolkatta
+
+Select Consumer_ID, Consumer_Name, City , Grade , Rep_ID 
+from Consumer 
+where city = 'Bangalore' or city = 'Kolkatta';
+
+
+Write a SQL Query to retrieve the details of the Invoice 
+like Invoice_ID, Invoice_Date, Consumer_ID, Rep_ID, Invoice_Amount
+whose Invoice_Amount is more than 5000.
+
+Select Invoice_ID, Invoice_Date, Consumer_ID, Rep_ID, Invoice_Amount 
+from Invoice  
+where Invoice_Amount > 5000;
+
+Write a SQL Query to retrieve the details of the Sales Rep like 
+Rep_ID, Name, City ,Commision who are from city that ends with 'i'
+
+select Rep_ID, Name, City, commision 
+from Sales_Rep
+where city like '%i';
+
+Exercise - 4
+
+Projection
+===========
+
+Write a SQL statement to display specific columns like 
+name, city and commision for all the salesmen. 
+
+SELECT name, commision, city from Sales_Rep;
+
+
+Write a query to display all the details of the Invoice 
+like Invoice_Date, Rep_ID, Invoice_ID and Invoice_Amount.
+ 
+Select Invoice_Date, Rep_ID, Invoice_ID, Invoice_Amount
+from Invoice; 
+
+
+Exercise -5
+
+OrderBy, GroupBy Clauses
+============================
+
+Write a SQL Statement to fetch the Details Consumer like 
+Consumer_ID, Consumer_Name , City , Grade 
+in alphabetical order of Name.
+
+select Consumer_ID , Consumer_Name , City , Grade 
+from Consumer
+order by Consumer_Name;
+
+
+Write a SQL statement which selects the highest Invoice Value 
+for each Sales Rep.
+
+select Rep_ID, max(Invoice_Amount) 
+from Invoice 
+group by Rep_ID;

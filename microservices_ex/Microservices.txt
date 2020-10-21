@@ -1,0 +1,63 @@
+
+
+Brillio Wave-2 Java FSD
+Learning outcome (09/09/2020) AN
+
+1. Spring Cloud
+
+2. Monolithic Architecture
+
+3. Microservices
+
+4. Implement Microservices 
+    (SpringBoot + MongoDB)
+	
+Spring cloud provides us with a set of tools that makes
+communication between Microservices easier.
+It is used for building robust cloud Application
+Spring cloud Appplications run in distributed environment
+
+Monolithic Architecture
+ All the software components required for the Application
+ are bundled into a single Module
+ 
+ All the components are into single unit and hence whenever
+ there is failure in one of the components, all components come 
+ to halt.
+ 
+Microservice
+
+It is a service oriented Architecture
+Collection of several small independant service. (User, Note, Category, Remainder).
+It is SE approach which focusses on decomposing the Application
+Modules can indepandantly deployed.
+Communication between Microservices is a stateless communication
+Each pair of request and response is independant
+Microservices can communicate effortlessly with each other.
+Each service has its own datasource
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+

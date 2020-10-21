@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Add a bean element with ID as "news" for News model with scope prototype -->
+	<bean id="news" class="com.stackroute.newz.model.News">
+	</bean>
+
+	<!-- Add a bean element with ID as "newsRepository" for NewsRepository model -->
+	<bean id="newsRepository" class="com.stackroute.newz.repository.NewsRepository">
+	</bean>
+</beans>

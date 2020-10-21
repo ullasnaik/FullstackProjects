@@ -1,0 +1,110 @@
+
+
+   Brillio Wave-2 Java FSD 
+
+Learning Outcome (01/09/2020) AN
+
+1. MVC Architecture
+
+2. Spring MVC
+
+3. Dispatcher Servlet
+
+4. Flow of SpringMVC
+
+MVC stands for Model View Controller
+
+Model 		: Encapsulates the Application Data (POJO)
+
+View 		: Responsible for rendering the model data
+       		  generates html output that the client's 
+	   		  browsers.(HTML, JSP)
+			  
+Controller 	: process the user's request and build appropriate
+              model and passes it to view for rendering
+			  
+Spring MVC
+
+-> provides a Model-View-Controller Architecture
+
+-> provides ready-made components which used to develop
+   flexible and loosely-coupled Web Application
+
+-> seperates the different Layers of the Application
+
+				  -> Input Logic
+				  -> Business Logic
+				  -> UI
+				  
+ Dispatcher Servlet is otherwise called as Front-Controller
+ 
+ -> handles all the HTTP Requests and Responses
+ -> recieves the request from the user
+ -> It consults the HandlerMapping to call appropriate
+     controller
+ -> Controller takes the request and call the appropriate
+     service methods
+ -> service method will set model data based on the defined
+    business logic and returns view name to the Dispatcher 
+	Servlet
+ -> DS will take the help of ViewResolver to pick up the designed 
+    view for request.
+ -> once view is finalized, DS passes the model data to the view
+ -> finally view will be rendered on the Browser.
+ 
+ @RequestMapping : is used to map the URL to either a class or a
+                    particular handler method.
+
+ @Contoller : used to specify that the class will act as a controller
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+   
+			  
+
+			  
+			  
+			  
+			  
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+
+
+

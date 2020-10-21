@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-volume
+  labels:
+    type: local
+spec:
+  storageClassName: mysql-class
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/mysql"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-claim
+spec:
+  storageClassName: mysql-class
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  labels:
+    app: fitnesszone
+    tier: backend
+spec:
+  ports:
+    - port: 3306
+      targetPort: 3306
+  selector:
+    app: fitnesszone
+    tier: backend
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: fitnesszone
+spec:
+  selector:
+    matchLabels:
+      app: fitnesszone
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fitnesszone
+        tier: backend
+    spec:
+      volumes:
+        - name: mysql-storage
+          persistentVolumeClaim:
+            claimName: mysql-claim
+      restartPolicy: Always
+      containers:
+        - name: mysql
+          image: mysql:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: "/var/lib/mysql"
+              name: mysql-storage
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              # value: password
+              valueFrom:
+                secretKeyRef:
+                  name: secret-data
+                  key: mysql_root_password
+            - name: MYSQL_DATABASE
+              # value: userdb
+              valueFrom:
+                configMapKeyRef:
+                  name: config-data
+                  key: mysql_database
+          ports:
+            - containerPort: 3306

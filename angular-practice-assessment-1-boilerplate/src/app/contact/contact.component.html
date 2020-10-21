@@ -1,0 +1,57 @@
+<div class="container-search">
+  <nav class="card-search">
+    <div class="container-search">
+      <h1>Contacts List App</h1>
+    </div>
+  </nav>
+  <div id="searchContainer">
+    <input  id="searchText-id" [(ngModel)]="searchText" placeholder="Search By Name or Mobile" />
+  </div>
+  <br>
+  <div class="left">
+    <table>
+        <caption>Contacts list</caption>
+      <tr>
+        <th id="th-id">Name</th>
+        <th id="th-id"> Mobile</th>
+      </tr>
+
+      <!-- Implement ngFor on conatacts to diplay contacts and 
+        add search pipe based on searchText-->
+      <tr *ngFor="">
+        <td>{{contact.name}}</td>
+        <td>{{contact.mobile}}</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="right">
+    <section id="person">
+      <div class="card card-container" >
+        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" alt="contact-img"/>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
+          <div class="container">
+            <label for="name">Name</label>
+            <input id = "name-id" type="text" name="name" [(ngModel)]="form.name" required placeholder="Enter Name"
+              minlength="1" #name="ngModel"/>
+            <div class="alert-danger"  *ngIf="f.submitted && name.invalid">
+              <div *ngIf="name.errors.required">Name is required</div>
+          </div>      
+            <label for="mobile"> mobile</label>
+            <input id="mobile-id" type="number" placeholder="Enter mobile number" name="mobile" [(ngModel)]="form.mobile" required #mobile="ngModel"/>
+            <div class="alert-danger alert-danger-mobile"  *ngIf="f.submitted && mobile.invalid">
+              <div *ngIf="mobile.errors.required">Mobile is required</div>
+          </div>
+            <button class="btn">
+              Add to contacts
+            </button>
+              <!-- write logic to display message if form is submitted and contacted is added -->
+              <div class="alert alert-danger" role="alert" *ngIf="">
+                {{ message }}
+              </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>

@@ -1,0 +1,148 @@
+
+Brillio Wave-2 Java FSD
+Learning Outcome (03/09/2020 FN)
+
+1. ORM
+
+2. Features of ORM
+
+3. ORM Tools
+
+4. Hibernate Framework
+
+5. Hibernate Block Diagram
+
+6. Configuration Object
+
+7. SessionFactory Object
+
+8. Session Object
+
+9. Transaction Object
+
+ORM (Object Relational Mapping)
+  - is a programming technique for converting 
+    data between incompatible type 
+  -	systems using object-oriented programming languages.
+
+Class Student{
+   rollno
+   name
+   score
+ }
+ 
+ Student s = new Student();
+ s ---> object of a Student
+ 
+ Mapping java Object into Database fields
+
+Features of ORM
+
+	- An object-relational mapper (ORM) is a code library 
+	  that automates the transfer of data stored in 
+	  relational databases.
+	
+ORM Tools
+	Castor, TopLink,Spring DAO, Hibernate
+
+Hibernate Framework
+	-It is a Java framework 
+	-simplifies the development of Java application to 
+  		interact with the database. 
+	-It is an open source, lightweight Framework
+	-It is an ORM (Object Relational Mapping) tool. 
+	-It implements the specifications of JPA 
+	     (Java Persistence API) for data persistence.
+		 
+Hibernate Block Diagram
+
+Hibernate Properties -----------> Hibernate.cfg.xml
+            driver information
+			connection url
+			username
+			password
+			dialect ------> type of Database used
+			
+XML Mapping ----------->  ClassName.hbm.xml
+	Employee ------------->   employee.hbm.xml
+	Student  ------------->   student.hbm.xml
+	
+	Mapping 
+	   className  ------> TableName
+	   attributes ------> columnname   
+ 
+
+
+Configuration Object
+	- It is the first Hibernate object ,we will create in 
+    	any Hibernate application. 
+	- It is usually created only once during application 
+		initialization. 
+	- It represents a configuration or properties file 
+	   required by the Hibernate.
+	- It provides two keys components :
+    • 	Database Connection − 
+			This is handled through one or more 
+			configuration files supported by Hibernate. 
+			These files are hibernate.properties and 
+			hibernate.cfg.xml.
+    • Class Mapping Setup − 
+		This component creates the connection between the
+		Java classes and database tables.
+
+SessionFactory Object
+
+ -SessionFactory object is created by Configuration Object.
+ -It is a heavyweight object; 
+ -It is usually created during application start up 
+ 
+Session Object
+	A Session is used to get a physical connection 
+	with a database. 
+	It is lightweight and designed to be instantiated 
+	each time an interaction is needed with the database. 
+	Persistent objects are saved and retrieved through a Session object.
+	It should not be kept open for a long time 
+	It is not thread safe and 
+	It should be created and destroyed as per need.
+	
+Transaction Object
+	It represents a unit of work with the 
+	database transaction functionality. 
+	Transactions in Hibernate are handled by the
+	transaction manager.
+
+HQL:
+Hibernate Query Language
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
